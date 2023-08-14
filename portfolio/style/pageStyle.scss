@@ -1,0 +1,211 @@
+$height-sizes: 8;
+$width-sizes: 12;
+$size-offset: 1.12;
+
+$space-sizes: 8;
+$spaceVar: 0.34;
+
+$directions: (
+    t:top,
+    b:bottom,
+    l:left,
+    r:right
+);
+
+
+
+
+.flex {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    &-col {
+        @extend .flex;
+        flex-direction: column;
+    }
+
+    &-row {
+        @extend .flex;
+
+        flex-direction: row;
+    }
+
+}
+
+.block {
+    display: block;
+}
+
+.h {
+    @for $i from 1 through $height-sizes {
+        &-#{$i} {
+            min-height: (100*$i)px;
+        }
+    }
+
+    &-50vh {
+        min-height: 50vh;
+    }
+
+    &-75vh {
+        min-height: 75vh;
+    }
+
+    &-100vh {
+        min-height: 100vh;
+    }
+}
+
+.w {
+    @for $i from 1 through $width-sizes {
+        &-#{$i} {
+            width: ($size-offset*$i)*100px;
+        }
+    }
+
+    &-50vw {
+        width: 50vh;
+    }
+
+    &-75vw {
+        width: 75vh;
+    }
+
+    &-100vw {
+        width: 100vw;
+    }
+    &-100{
+        width: 100%;
+    }
+}
+
+.m {
+    @for $i from 0 through $space-sizes {
+        &-#{$i} {
+            margin: ($i*$spaceVar)em;
+        }
+    }
+
+
+    @each $letter,
+    $direction in $directions {
+        @for $i from 0 through $space-sizes {
+            &#{$letter}-#{$i} {
+                margin-#{$direction}: ($i*$spaceVar)em;
+            }
+        }
+
+        &#{$letter}-auto {
+            margin-#{$direction}: auto;
+        }
+    }
+
+    &-auto {
+        margin: auto;
+    }
+
+}
+
+.p {
+    @for $i from 0 through $space-sizes {
+        &-#{$i} {
+            padding: ($i*$spaceVar)em;
+        }
+    }
+
+
+    @each $letter,
+    $direction in $directions {
+        @for $i from 0 through $space-sizes {
+            &#{$letter}-#{$i} {
+                padding-#{$direction}: ($i*$spaceVar)em;
+            }
+        }
+
+        &#{$letter}-auto {
+            padding-#{$direction}: auto;
+        }
+    }
+
+    &-auto {
+        padding: auto;
+    }
+
+}
+
+.profilepic {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    object-position: 0 -10px;
+    border-radius: 50%;
+
+}
+
+
+.container{
+
+
+    &-image {
+        display: block;
+
+
+    }
+
+    &-section {
+        justify-content: center;
+        align-items:baseline;
+        min-height: 100vh;
+
+        
+
+        h1{
+           margin-bottom: 0;
+        }
+        p{
+            margin-top: 0;
+        }
+
+
+    }
+    &-main{
+        @extend .flex-col;
+
+    }
+    &-text{
+        @extend .flex-col;
+        justify-content: flex-start;
+    }
+    &__skillSection{
+        @extend .grid-1-4,.w-6;
+        min-width: 500px;
+
+    }
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(150px, 1fr)
+    );
+    gap: 32px;
+
+    &-1-4{
+        grid-template-columns: 1fr 4fr;
+    }
+
+    div > div {
+        @extend .flex-col;
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
+        
+    }
+}
+
+.card{
+    @extend .flex-row;
+    width: 100%;
+
+}
