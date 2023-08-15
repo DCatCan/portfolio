@@ -22,7 +22,7 @@ export default function Home() {
 
 
   return (
-    <main className={`${style['h-100vh']} ${style['container-main']} `}>
+    <main className={`${style['h-100vh']} ${style['container-main']}`}>
       <Presentation />
       <Skillsection skillData={skillData} />
     </main>
@@ -31,59 +31,51 @@ export default function Home() {
 
 const Presentation = () => {
   return (
-    <div className={`${style["container-section"]} ${style["w-6"]} ${style['flex-row']}`}>
-      <div className={`${style["container-text"]} `}>
+    <div className={`${style["container-section"]} ${style["flex-row"]} ${style["align-center"]} ${style["flex-center"]} `}>
+      <div className={`${style["container-text"]}  `}>
         <h1 className=''>Danilo Catalan Canales</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est impedit aliquid aspernatur pariatur voluptatum. Delectus voluptatum cumque, vel ea repellat molestias nulla quas aliquam consequuntur iure ex dolor reprehenderit et!</p>
 
       </div>
 
-      <div className={`${style["container-image"]}`}>
+      <div className={`${style["container-image"]} `}>
         <Image src={profilePic} alt='profilePic' className={style.profilepic} />
       </div>
     </div>
   )
 }
 
-const Projects = () => {
-
-  return (
-    <div className=''>
-
-    </div>
-  )
-}
-
 const Skillsection = ({ skillData }: dataProps) => {
 
-  return <div className={`${style['container-section']} ${style['flex-col']} `}>
-    <h1>
-      Skillz
-    </h1>
-    <div className={`${style["flex-col"]}  `}>
-      {skillData.map(skillGroup => {
-        const skillName = skillGroup.name;
-        const skillList = skillGroup.list;
-        return <div className={`${style["container__skillSection"]} ${style["mt-4"]}`}>
-          <div className={`${style["w-100"]} `}>
-            <h2>
-              {skillName}
-            </h2>
+  return <div className={`${style['container-section']} `}>
+    <div className={`${style['container-text']} `}>
+      <h1>
+        Skill Set
+      </h1>
+    </div>
+    <div className={`${style['container-innerSection']}`}>
+      {skillData.map(dataPiece => {
+        const header = dataPiece.name;
+        const progList = dataPiece.list;
+        return <div className={` ${style['container-innerGrid']} `}>
+          <div>
+            <h2>{header}</h2>
           </div>
-          <div className={`${style['grid']} `}>
-            {
-              skillList.map((aSkill, index) =>
-
-                <Card name={aSkill.name} level={aSkill.level} key={index} />
-
-              )
-            }
+          <div className={`${style['grid-1-1']}  `}>
+            {progList.map(el => {
+              return <div className={`${style['card']} ${style['flex-row']}${style['flex-center']} `}>
+                <h3>{el.name}</h3>
+                <p>{el.level}</p>
+              </div>
+            })}
           </div>
 
 
         </div>
       })}
+
     </div>
+
 
   </div>
 

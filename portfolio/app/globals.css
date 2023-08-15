@@ -1,6 +1,7 @@
-body{
+body,html{
   margin: 0;
   padding: 0;
+  display: unset;
   
 }
 p{
@@ -10,4 +11,8 @@ p{
 h1,h2,h3,h4{
   margin:0;
   padding: 0;
+  display: unset;
+}
+main{
+  display: unset;
 }

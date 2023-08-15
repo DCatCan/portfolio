@@ -12,13 +12,38 @@ $directions: (
     r:right
 );
 
+$size__site_content_width: 1024px;
 
+/* Media Queries Not necessarily correct, edit these at will  */
+$media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
+    'tablet' : unquote("only screen and (min-width: 668px) and (max-width: 800px)"),
+    'desktop' : unquote("only screen and (min-width: (" + $size__site_content_width + " + 1))"),
+    'retina2' : unquote("only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)"),
+    'retina3' : unquote("only screen and (-webkit-min-device-pixel-ratio: 3) and (min-resolution: 288dpi)"),
+    'landscape' : unquote("screen and (orientation:landscape) "),
+    'portrait' : unquote("screen and (orientation:portrait) "));
+
+
+@mixin media_breakPoints($breakpoints) {
+    $conditions : ();
+
+    @each $breakpoint in $breakpoints {
+        // If the key exists in the map
+        $conditions: append($conditions,
+            #{inspect(map-get($media_queries, $breakpoint))},
+            comma);
+    }
+
+    @media #{$conditions} {
+        @content;
+    }
+
+}
 
 
 .flex {
     display: flex;
-    justify-self: center;
-    align-items: center;
+
 
     &-col {
         @extend .flex;
@@ -27,10 +52,21 @@ $directions: (
 
     &-row {
         @extend .flex;
-
         flex-direction: row;
     }
+    &-space_evenly{
+        justify-content: space-evenly;
+    }
+    &-center{
+        justify-content: center;
+    }
 
+
+}
+.align{
+    &-center{
+        align-items: center;
+    }
 }
 
 .block {
@@ -60,30 +96,31 @@ $directions: (
 .w {
     @for $i from 1 through $width-sizes {
         &-#{$i} {
-            width: ($size-offset*$i)*100px;
+            width: ($size-offset*$i)*100px !important;
         }
     }
 
     &-50vw {
-        width: 50vh;
+        width: 50vh !important;
     }
 
     &-75vw {
-        width: 75vh;
+        width: 75vh !important;
     }
 
     &-100vw {
-        width: 100vw;
+        width: 100vw !important;
     }
-    &-100{
-        width: 100%;
+
+    &-100 {
+        width: 100% !important;
     }
 }
 
 .m {
     @for $i from 0 through $space-sizes {
         &-#{$i} {
-            margin: ($i*$spaceVar)em;
+            margin: $i*$spaceVar*1em;
         }
     }
 
@@ -92,7 +129,7 @@ $directions: (
     $direction in $directions {
         @for $i from 0 through $space-sizes {
             &#{$letter}-#{$i} {
-                margin-#{$direction}: ($i*$spaceVar)em;
+                margin-#{$direction}: $i*$spaceVar*1em !important;
             }
         }
 
@@ -110,7 +147,7 @@ $directions: (
 .p {
     @for $i from 0 through $space-sizes {
         &-#{$i} {
-            padding: ($i*$spaceVar)em;
+            padding: $i*$spaceVar*1em !important;
         }
     }
 
@@ -119,7 +156,7 @@ $directions: (
     $direction in $directions {
         @for $i from 0 through $space-sizes {
             &#{$letter}-#{$i} {
-                padding-#{$direction}: ($i*$spaceVar)em;
+                padding-#{$direction}: $i*$spaceVar*1em !important;
             }
         }
 
@@ -143,69 +180,105 @@ $directions: (
 
 }
 
+.grid{
+    display: grid;
 
-.container{
+    &-1-1{
+        @extend .grid;
+
+        grid-template-columns: repeat(auto-fill, [col-start] minmax(100px, 1fr) [col-end]);
+        gap: 32px;
+    }
+}
+
+.container {
 
 
     &-image {
-        display: block;
+        @include media_breakPoints(mobile) {
+            
+        }
+      
 
+        display: block;
+        > *{
+            border: 6px rgb(54, 201, 142) solid;
+        }
 
     }
 
     &-section {
-        justify-content: center;
-        align-items:baseline;
+        @extend .flex-col, .container;
         min-height: 100vh;
-
+        width: 100%;
+        max-width: 710px;
+        @include media_breakPoints(mobile) {
+            width: 100%;
+            flex-direction: column;
+            
+            
+        }
+        @include media_breakPoints(tablet) {
+            
+        }
         
 
-        h1{
-           margin-bottom: 0;
+
+        h1 {
+            margin-bottom: 0;
         }
-        p{
+
+        p {
             margin-top: 0;
         }
 
 
     }
-    &-main{
+
+
+    &-main {
         @extend .flex-col;
+        justify-content: center;
+        align-items: center;
 
     }
-    &-text{
-        @extend .flex-col;
-        justify-content: flex-start;
-    }
-    &__skillSection{
-        @extend .grid-1-4,.w-6;
-        min-width: 500px;
 
-    }
-}
-
-.grid{
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(150px, 1fr)
-    );
-    gap: 32px;
-
-    &-1-4{
-        grid-template-columns: 1fr 4fr;
+    &-text {
+        @extend .flex-col, .container;
+        @include media_breakPoints(mobile tablet) {
+            margin-bottom: 2em;
+            max-width: 350px;
+            margin-inline: 3em;
+        }
+        align-items: flex-start;
+        max-width: 500px;
     }
 
-    div > div {
-        @extend .flex-col;
-        border-radius: 8px;
-        width: 100%;
-        height: auto;
+    &-innerGrid {
+        display: grid;
+
+        grid-template-columns: 100px 500px;
+        gap: 110px;
+        margin-bottom: 4em;
         
+        @include media_breakPoints(mobile tablet) {
+            grid-template-columns: auto;
+            gap: 50px;
+            margin-inline: 3em;
+            
+        }
+
     }
 }
 
-.card{
-    @extend .flex-row;
+
+
+.card {
+    border-radius: 8px;
     width: 100%;
+    height: auto;
 
 }
+
+
+// Font Stuff
