@@ -54,18 +54,27 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         @extend .flex;
         flex-direction: row;
     }
-    &-space_evenly{
+
+    &-space_evenly {
         justify-content: space-evenly;
     }
-    &-center{
+
+    &-center {
         justify-content: center;
     }
 
 
 }
-.align{
-    &-center{
+
+.align {
+    &-center {
         align-items: center;
+    }
+    &-end{
+        align-items: flex-end;
+    }
+    &-start{
+        align-items: start;
     }
 }
 
@@ -180,10 +189,10 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
 }
 
-.grid{
+.grid {
     display: grid;
 
-    &-1-1{
+    &-1-1 {
         @extend .grid;
 
         grid-template-columns: repeat(auto-fill, [col-start] minmax(100px, 1fr) [col-end]);
@@ -195,14 +204,14 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
 
     &-image {
-        @include media_breakPoints(mobile) {
-            
-        }
-      
+        @include media_breakPoints(mobile) {}
+
 
         display: block;
-        > *{
-            border: 6px rgb(54, 201, 142) solid;
+
+        >* {
+            box-shadow: 0px 4px 10px 5px #adb5bd;
+
         }
 
     }
@@ -212,16 +221,17 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         min-height: 100vh;
         width: 100%;
         max-width: 710px;
+        gap: 1em;
+
         @include media_breakPoints(mobile) {
             width: 100%;
             flex-direction: column;
-            
-            
+
+
         }
-        @include media_breakPoints(tablet) {
-            
-        }
-        
+
+        @include media_breakPoints(tablet) {}
+
 
 
         h1 {
@@ -240,32 +250,86 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         @extend .flex-col;
         justify-content: center;
         align-items: center;
-
+        background-color: #f8f9fa
     }
 
     &-text {
         @extend .flex-col, .container;
+        padding: 3em 0em;
+        margin-bottom: 2em;
+        // box-shadow: 2px 2px 8px #adb5bd;
+
+
         @include media_breakPoints(mobile tablet) {
             margin-bottom: 2em;
-            max-width: 350px;
-            margin-inline: 3em;
+            margin-inline: 1em;
+            padding: 1em 2em;
         }
+
         align-items: flex-start;
-        max-width: 500px;
+
     }
 
     &-innerGrid {
         display: grid;
+        grid-template-columns: auto;
+        gap: 50px;
+        margin-bottom: 1em;
+        padding: 1em;
+        box-shadow: 2px 2px 8px #adb5bd;
 
-        grid-template-columns: 100px 500px;
-        gap: 110px;
-        margin-bottom: 4em;
-        
+
         @include media_breakPoints(mobile tablet) {
             grid-template-columns: auto;
             gap: 50px;
-            margin-inline: 3em;
-            
+            margin-inline: 1em;
+
+        }
+
+        h2 {
+            color: #212529;
+        }
+
+        h3 {}
+
+    }
+
+    &-bars {
+        width: 100%;
+        min-height: 50%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        border: 1px solid black;
+        border-radius: 8px;
+
+        .bar {
+            min-height: 100%;
+            background-color: rgb(154, 154, 204);
+            width: auto;
+            border-right: solid 1px black;
+
+
+        }
+
+        :first-child {
+            border-radius: 8px 0px 0px 8px;
+        }
+
+        :last-child {
+            // border-radius: 0px 8px 8px 0px;
+            border-right: solid 1px black;
+
+        }
+
+        :only-child {
+            border-radius: 8px 0px 0px 8px;
+
+        }
+
+        :nth-child(5) {
+            border: none;
+            border-radius: 0px 8px 8px 0px;
+
         }
 
     }
@@ -274,11 +338,24 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
 
 .card {
+    @extend .flex-col, .flex-center, .align-center;
     border-radius: 8px;
     width: 100%;
     height: auto;
+    gap: 10px;
+    background-color: #f8f9fa;
+    padding: 5px;
+    // box-shadow: 0px 2px 5px #adb5bd;
+
 
 }
 
+
+.spaceSection {
+    min-width: 100%;
+    height: 300px;
+    background-image: linear-gradient(#f8f9fa, #dee2e6, #f8f9fa);
+    margin-block: 5em;
+}
 
 // Font Stuff

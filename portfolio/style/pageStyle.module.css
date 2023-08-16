@@ -1,8 +1,8 @@
 /* Media Queries Not necessarily correct, edit these at will  */
-.flex, .flex-row, .flex-col, .container-text, .container-main, .container-section {
+.flex, .flex-row, .flex-col, .card, .container-text, .container-main, .container-section {
   display: flex;
 }
-.flex-col, .container-text, .container-main, .container-section {
+.flex-col, .card, .container-text, .container-main, .container-section {
   flex-direction: column;
 }
 .flex-row {
@@ -11,12 +11,18 @@
 .flex-space_evenly {
   justify-content: space-evenly;
 }
-.flex-center {
+.flex-center, .card {
   justify-content: center;
 }
 
-.align-center {
+.align-center, .card {
   align-items: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-start {
+  align-items: start;
 }
 
 .block {
@@ -430,12 +436,13 @@
   display: block;
 }
 .container-image > * {
-  border: 6px rgb(54, 201, 142) solid;
+  box-shadow: 0px 4px 10px 5px #adb5bd;
 }
 .container-section {
   min-height: 100vh;
   width: 100%;
   max-width: 710px;
+  gap: 1em;
 }
 @media only screen and (max-width: 667px) {
   .container-section {
@@ -452,34 +459,78 @@
 .container-main {
   justify-content: center;
   align-items: center;
+  background-color: #f8f9fa;
 }
 .container-text {
+  padding: 3em 0em;
+  margin-bottom: 2em;
   align-items: flex-start;
-  max-width: 500px;
 }
 @media only screen and (max-width: 667px), only screen and (min-width: 668px) and (max-width: 800px) {
   .container-text {
     margin-bottom: 2em;
-    max-width: 350px;
-    margin-inline: 3em;
+    margin-inline: 1em;
+    padding: 1em 2em;
   }
 }
 .container-innerGrid {
   display: grid;
-  grid-template-columns: 100px 500px;
-  gap: 110px;
-  margin-bottom: 4em;
+  grid-template-columns: auto;
+  gap: 50px;
+  margin-bottom: 1em;
+  padding: 1em;
+  box-shadow: 2px 2px 8px #adb5bd;
 }
 @media only screen and (max-width: 667px), only screen and (min-width: 668px) and (max-width: 800px) {
   .container-innerGrid {
     grid-template-columns: auto;
     gap: 50px;
-    margin-inline: 3em;
+    margin-inline: 1em;
   }
+}
+.container-innerGrid h2 {
+  color: #212529;
+}
+.container-bars {
+  width: 100%;
+  min-height: 50%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.container-bars .bar {
+  min-height: 100%;
+  background-color: rgb(154, 154, 204);
+  width: auto;
+  border-right: solid 1px black;
+}
+.container-bars :first-child {
+  border-radius: 8px 0px 0px 8px;
+}
+.container-bars :last-child {
+  border-right: solid 1px black;
+}
+.container-bars :only-child {
+  border-radius: 8px 0px 0px 8px;
+}
+.container-bars :nth-child(5) {
+  border: none;
+  border-radius: 0px 8px 8px 0px;
 }
 
 .card {
   border-radius: 8px;
   width: 100%;
   height: auto;
+  gap: 10px;
+  background-color: #f8f9fa;
+  padding: 5px;
+}
+
+.spaceSection {
+  min-width: 100%;
+  height: 300px;
+  background-image: linear-gradient(#f8f9fa, #dee2e6, #f8f9fa);
+  margin-block: 5em;
 }/*# sourceMappingURL=pageStyle.module.css.map */
