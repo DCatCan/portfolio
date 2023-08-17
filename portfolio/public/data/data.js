@@ -48,15 +48,15 @@ export const skillData = [
 
 export const projects = [
     {
-        projectName: "project1",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis odio architecto necessitatibus commodi eius quidem ipsam placeat et dolores nisi.",
-        date: new Date(2020,2,22),
-        url: "url"
+        projectName: "Physics Network Simulation Tool for Avalanche Studios: Group Project (C++)",
+        description: "Una API que integra la biblioteca de red RakNet con el motor de física Havok para simular la conexión entre el servidor y el cliente, visualizar y registrar estadísticas de ancho de banda.",
+        startDate: new Date(2018, 1),
+        endDate: new Date(2018, 5),
     },
     {
-        projectName: "project2",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis odio architecto necessitatibus commodi eius quidem ipsam placeat et dolores nisi.",
-        date: new Date(2020,2,22),
-        url: "url"
+        projectName: "Genome visualization tool for general use, Input Generated Genome Browser",
+        description: "Un estudio que presenta el desarrollo de una herramienta de visualización de genes llamada navegador de genes generado por entrada, o IGGB por sus siglas en inglés (Input Generated Gene Browser), que tiene como objetivo proporcionar un navegador de genes fácil de usar para los usuarios.",
+        endDate:new Date(2020, 3),
+        url: "https://kandidat-exam.vercel.app/userinput"
     }
 ]

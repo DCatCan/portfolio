@@ -3,6 +3,7 @@ import profilePic from "@/public/profilePic.jpeg"
 import style from "@/style/pageStyle.module.css"
 import { FC } from 'react';
 import { skillData, projects } from "@/public/data/data.js"
+import Link from 'next/link';
 
 
 
@@ -17,9 +18,10 @@ interface Skill {
 }
 
 interface projectData {
-  projectName?: string;
-  description?: string;
-  date?: Date;
+  projectName: string;
+  description: string;
+  startDate?: Date;
+  endDate: Date;
   url?: string;
 }
 
@@ -113,7 +115,9 @@ const Projects = ({ projects }: projProps) => {
       {projects.map(dataPiece => {
         const name = dataPiece.projectName;
         const description = dataPiece.description;
-        const date = dataPiece.date?.toDateString();
+        let startdate: string = dataPiece.startDate?.getFullYear() + "/" + dataPiece.startDate?.getMonth() 
+        let endDate: string = dataPiece.endDate.getFullYear() + "/" + dataPiece.endDate.getMonth() 
+        let date = startdate ? startdate + " - " + endDate : endDate;
         const url = dataPiece.url;
         return <div className={` ${style['container-innerGrid']} `}>
           <div className={`${style["h-3"]} `}>
@@ -122,7 +126,7 @@ const Projects = ({ projects }: projProps) => {
           <div className={`${style['flex-col']}  `}>
             <p>{description}</p>
             <h4>{date}</h4>
-            {}
+            {url ? <Link href={url}>Project Page</Link>: null}
           </div>
         </div>
       })}

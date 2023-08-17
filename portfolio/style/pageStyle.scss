@@ -196,7 +196,9 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         @extend .grid;
 
         grid-template-columns: repeat(auto-fill, [col-start] minmax(100px, 1fr) [col-end]);
-        gap: 32px;
+        grid-template-rows: repeat(auto-fit,minmax(70px, 1fr) );
+        gap: 20px 10px;
+        padding-inline: 5px;
     }
 }
 
@@ -256,7 +258,6 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     &-text {
         @extend .flex-col, .container;
         padding: 3em 0em;
-        margin-bottom: 2em;
         // box-shadow: 2px 2px 8px #adb5bd;
 
 
@@ -273,10 +274,14 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     &-innerGrid {
         display: grid;
         grid-template-columns: auto;
-        gap: 50px;
+        gap: 20px;
         margin-bottom: 1em;
         padding: 1em;
+        border-radius: 8px;
         box-shadow: 2px 2px 8px #adb5bd;
+        >*{
+            height: auto;
+        }
 
 
         @include media_breakPoints(mobile tablet) {
@@ -290,13 +295,12 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
             color: #212529;
         }
 
-        h3 {}
 
     }
 
     &-bars {
-        width: 100%;
-        min-height: 50%;
+        width: 90%;
+        min-height: 10px ;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         border: 1px solid black;
@@ -338,7 +342,7 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
 
 .card {
-    @extend .flex-col, .flex-center, .align-center;
+    @extend .flex-col, .align-center;
     border-radius: 8px;
     width: 100%;
     height: auto;
