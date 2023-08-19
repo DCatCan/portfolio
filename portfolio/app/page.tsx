@@ -117,7 +117,7 @@ const Skillsection = ({ skillData }: dataProps) => {
           const header = dataPiece.name;
           const progList = dataPiece.list;
           return (
-            <div className={` ${style["container-innerGrid"]} `}>
+            <div className={` ${style["container-innerGrid"]} `} key={header}>
               <div>
                 <h2>{header}</h2>
               </div>
@@ -126,11 +126,11 @@ const Skillsection = ({ skillData }: dataProps) => {
                   const bars = new Array(el.level).fill(0);
 
                   return (
-                    <div className={`${style["card"]}  `}>
+                    <div className={`${style["card"]}  `}  key={el.name}>
                       <h3>{el.name}</h3>
                       <div className={`${style["container-bars"]} `}>
-                        {bars.map((bar) => (
-                          <div className={`${style["bar"]} `}></div>
+                        {bars.map((bar, index) => (
+                          <div className={`${style["bar"]} `} key={el.name + index}></div>
                         ))}
                       </div>
                     </div>
@@ -168,7 +168,7 @@ const Projects = ({ projects }: projProps) => {
           let date = startdate ? startdate + " - " + endDate : endDate;
           const url = dataPiece.url;
           return (
-            <div className={` ${style["container-innerGrid"]} `}>
+            <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
                 <h2>{name}</h2>
               </div>
@@ -213,7 +213,7 @@ const Workexp = ({ workexp }: workProps) => {
               : dataPiece.endDate?.getMonth());
           let date = startdate ? startdate + " - " + endDate : endDate;
           return (
-            <div className={` ${style["container-innerGrid"]} `}>
+            <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
                 <h2>{name}</h2>
               </div>
