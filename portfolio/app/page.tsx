@@ -150,7 +150,7 @@ const Projects = ({ projects }: projProps) => {
     <div className={`${style["container-section"]} `}>
       <div className={`${style["container-text"]} `}>
         <h1>Projects</h1>
-        <p>Projects that I've been part of or made on my own.</p>
+        <p>Projects that I&apos;ve been part of or made on my own.</p>
       </div>
       <div className={``}>
         {projects.map((dataPiece) => {
@@ -192,7 +192,7 @@ const Workexp = ({ workexp }: workProps) => {
     <div className={`${style["container-section"]} `}>
       <div className={`${style["container-text"]} `}>
         <h1>Work Experience</h1>
-        <p>Work experience that I've accumulated throughout the years.</p>
+        <p>Work experience that I&apos;ve accumulated throughout the years.</p>
       </div>
       <div className={``}>
         {workexp.map((dataPiece) => {
