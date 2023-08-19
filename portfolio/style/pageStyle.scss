@@ -58,6 +58,9 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     &-space_evenly {
         justify-content: space-evenly;
     }
+    &-space_between{
+        justify-content: space-between
+    }
 
     &-center {
         justify-content: center;
@@ -185,7 +188,8 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     height: 200px;
     width: 200px;
     object-position: 0 -10px;
-    border-radius: 50%;
+    border-radius: 30%;
+    scale: 1;
 
 }
 
@@ -202,20 +206,37 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     }
 }
 
+.gap{
+    &_0{
+        gap: 0 !important;
+    }
+    &_1{
+        gap: 10px !important ;
+    }
+    &_2{
+        gap: 20px !important;
+    }
+}
+
 .container {
 
 
     &-image {
         @include media_breakPoints(mobile) {}
-
+        padding: 0 1em;
 
         display: block;
 
         >* {
             box-shadow: 0px 4px 10px 5px #adb5bd;
-
+            object-fit: cover
         }
 
+    }
+    &-subsection{
+        @extend .grid;
+        width: 100%;
+        
     }
 
     &-section {
@@ -257,14 +278,14 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
     &-text {
         @extend .flex-col, .container;
-        padding: 3em 0em;
+        padding-top: 3em;
         // box-shadow: 2px 2px 8px #adb5bd;
 
 
         @include media_breakPoints(mobile tablet) {
             margin-bottom: 2em;
             margin-inline: 1em;
-            padding: 1em 2em;
+            padding: 1em 0em;
         }
 
         align-items: flex-start;
@@ -363,3 +384,12 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 }
 
 // Font Stuff
+
+.font{
+
+    &__centered{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+    }
+}

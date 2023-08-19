@@ -1,11 +1,10 @@
-import Image from 'next/image'
-import profilePic from "@/public/profilePic.jpeg"
-import style from "@/style/pageStyle.module.css"
-import { FC } from 'react';
-import { skillData, projects } from "@/public/data/data.js"
-import Link from 'next/link';
-
-
+import Image from "next/image";
+import profilePic from "@/public/profilePic.jpeg";
+import logo from "@/public/su_logo.svg";
+import style from "@/style/pageStyle.module.css";
+import { FC } from "react";
+import { skillData, projects, workexp } from "@/public/data/data.js";
+import Link from "next/link";
 
 interface skillGroup {
   name?: string;
@@ -25,121 +24,213 @@ interface projectData {
   url?: string;
 }
 
-type dataProps = { skillData: skillGroup[] }
-type projProps = { projects: projectData[] }
+interface workData {
+  Company: string;
+  location: string;
+  workedAs: string;
+  description: string;
+  startDate: Date;
+  endDate: Date;
+}
+
+type dataProps = { skillData: skillGroup[] };
+type projProps = { projects: projectData[] };
+type workProps = { workexp: workData[] };
 
 export default function Home() {
-
-
   return (
-    <main className={`${style['h-100vh']} ${style['container-main']}`}>
+    <main className={`${style["h-100vh"]} ${style["container-main"]}`}>
       <Presentation />
-      <Space />
       <Skillsection skillData={skillData} />
-      <Space />
+      <Workexp workexp={workexp} />
       <Projects projects={projects} />
     </main>
-  )
+  );
 }
 
 const Presentation = () => {
   return (
-    <div className={`${style["container-section"]} ${style["flex-row"]} ${style["align-center"]} ${style["flex-center"]} `}>
-      <div className={`${style["container-text"]}  `}>
-        <h1 className=''>Danilo Catalan Canales</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est impedit aliquid aspernatur pariatur voluptatum. Delectus voluptatum cumque, vel ea repellat molestias nulla quas aliquam consequuntur iure ex dolor reprehenderit et!</p>
-
+    <div
+      className={`${style["container-section"]} ${style["flex-row"]} ${style["align-center"]} ${style["flex-center"]} `}
+    >
+      <div className={`${style["container-text"]} ${style["p-0"]} `}>
+        <h1 className="">Danilo Catalan Canales</h1>
+        <p>
+          I am a creative, energetic and a self-motivated person. I have lots of
+          interest in technology and innovation, which is what motivates my
+          aspirations to push new creative ideas and solutions in my own work. I
+          have strong problem-solving skills as well as excellent communication
+          skills to be able to work as efficiently as possible with a team. As a
+          graduate and previous experience working with clients and project
+          management I am confident to achieve expected objectives on time with
+          high quality.
+        </p>
       </div>
 
       <div className={`${style["container-image"]} `}>
-        <Image src={profilePic} alt='profilePic' className={style.profilepic} />
+        <p className={`${style.font__centered}`}></p>
+        <Image src={profilePic} alt="profilePic" className={style.profilepic} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Skillsection = ({ skillData }: dataProps) => {
-
-  return <div className={`${style['container-section']} `}>
-    <div className={`${style['container-text']} `}>
-      <h1>
-        Skill Set
-      </h1>
-      <p>The skills are set from 1 to 5 where 1 is basic understanding and 5 is expert level.</p>
-    </div>
-    <div className={`${style['']}`}>
-      {skillData.map(dataPiece => {
-        const header = dataPiece.name;
-        const progList = dataPiece.list;
-        return <div className={` ${style['container-innerGrid']} `}>
-          <div>
-            <h2>{header}</h2>
+  return (
+    <div className={`${style["container-section"]} ${style["mb-8"]}`}>
+      <div className={`${style["container-text"]} `}>
+        <h1>Education & programming skill set</h1>
+        <p>
+          This section presents my education and different programming language
+          skills which I have acquired over the years. The education section
+          displays relevant courses for the degree. <br />
+          The skill section tells an approximate level of knowledge of every
+          programming language, where 1 is basic knowledge and 5 is expert
+          knowledge.
+        </p>
+      </div>
+      <div className={`${style["flex-col"]}`}>
+        <div className={`${style["container-innerGrid"]} ${style["gap_0"]} `}>
+          <div
+            className={`${style["flex-row"]} ${style["flex-space_between"]}`}
+          >
+            <div className={`${style["flex-col"]}`}>
+              <h2>University Of Stockholm</h2>
+              <h3>Bachelor degree in Computer Science</h3>
+            </div>
+            <div>
+              <Image src={logo} alt="su_logo" width={120} height={60} />
+            </div>
           </div>
-          <div className={`${style['grid-1-1']}  `}>
-            {progList.map(el => {
-              const bars = new Array(el.level).fill(0);
-              console.log(bars);
 
-              return <div className={`${style['card']}  `}>
-                <h3>{el.name}</h3>
-                <div className={`${style["container-bars"]} `}>
-                  {bars.map(bar =>
-                    <div className={`${style["bar"]} `}>
-
-                    </div>
-                  )}
-                </div>
-              </div>
-            })}
-          </div>
+          <p>
+            Programming I & II (Scheme, Python) | Object-Oriented Programming
+            (Java) | Programming Paradigms (C, Python, Java, Haskell, Prolog,
+            JavaScript) | Computer Graphics, and User Interfaces (C++) |
+            Numerical Analysis (Python, MATLAB) |{" "}
+            <b>Database Technology (SQL, XML, XQuery)</b> | Algorithms and
+            Complexity | <b>Software Design (C#)</b> | <b>Machine learning</b> |
+            Webbdesign I | Webbdesign II
+          </p>
         </div>
-      })}
+        {skillData.map((dataPiece) => {
+          const header = dataPiece.name;
+          const progList = dataPiece.list;
+          return (
+            <div className={` ${style["container-innerGrid"]} `}>
+              <div>
+                <h2>{header}</h2>
+              </div>
+              <div className={`${style["grid-1-1"]}  `}>
+                {progList.map((el) => {
+                  const bars = new Array(el.level).fill(0);
 
+                  return (
+                    <div className={`${style["card"]}  `}>
+                      <h3>{el.name}</h3>
+                      <div className={`${style["container-bars"]} `}>
+                        {bars.map((bar) => (
+                          <div className={`${style["bar"]} `}></div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-
-
-  </div>
-
-}
-
+  );
+};
 
 const Projects = ({ projects }: projProps) => {
-
-  return <div className={`${style["container-section"]} `}>
-    <div className={`${style['container-text']} `}>
-      <h1>
-        Projects
-      </h1>
+  return (
+    <div className={`${style["container-section"]} `}>
+      <div className={`${style["container-text"]} `}>
+        <h1>Projects</h1>
+        <p>Projects that I've been part of or made on my own.</p>
+      </div>
+      <div className={``}>
+        {projects.map((dataPiece) => {
+          const name = dataPiece.projectName;
+          const description = dataPiece.description;
+          let startdate = dataPiece.startDate
+            ? dataPiece.startDate.getFullYear() +
+              "/" +
+              dataPiece.startDate?.getMonth()
+            : undefined;
+          let endDate: string =
+            dataPiece.endDate.getFullYear() +
+            "/" +
+            dataPiece.endDate.getMonth();
+          let date = startdate ? startdate + " - " + endDate : endDate;
+          const url = dataPiece.url;
+          return (
+            <div className={` ${style["container-innerGrid"]} `}>
+              <div className={`${style["h-3"]} `}>
+                <h2>{name}</h2>
+              </div>
+              <div>
+                <p>{description}</p>
+              </div>
+              <div className={`${style["flex-col"]}  `}>
+                <h4>{date}</h4>
+                {url ? <Link href={url}>Project Page</Link> : null}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-    <div className={``}>
-      {projects.map(dataPiece => {
-        const name = dataPiece.projectName;
-        const description = dataPiece.description;
-        let startdate: string = dataPiece.startDate?.getFullYear() + "/" + dataPiece.startDate?.getMonth() 
-        let endDate: string = dataPiece.endDate.getFullYear() + "/" + dataPiece.endDate.getMonth() 
-        let date = startdate ? startdate + " - " + endDate : endDate;
-        const url = dataPiece.url;
-        return <div className={` ${style['container-innerGrid']} `}>
-          <div className={`${style["h-3"]} `}>
-            <h2>{name}</h2>
-          </div>
-          <div className={`${style['flex-col']}  `}>
-            <p>{description}</p>
-            <h4>{date}</h4>
-            {url ? <Link href={url}>Project Page</Link>: null}
-          </div>
-        </div>
-      })}
+  );
+};
 
+const Workexp = ({ workexp }: workProps) => {
+  return (
+    <div className={`${style["container-section"]} `}>
+      <div className={`${style["container-text"]} `}>
+        <h1>Work Experience</h1>
+        <p>Work experience that I've accumulated throughout the years.</p>
+      </div>
+      <div className={``}>
+        {workexp.map((dataPiece) => {
+          const name = dataPiece.Company;
+          const description = dataPiece.description;
+          let startdate = dataPiece.startDate
+            ? dataPiece.startDate.getFullYear() +
+              "/" +
+              (dataPiece.startDate?.getMonth() === 0
+                ? "12"
+                : dataPiece.startDate?.getMonth())
+            : undefined;
+          let endDate: string =
+            dataPiece.endDate.getFullYear() +
+            "/" +
+            (dataPiece.endDate?.getMonth() === 0
+              ? 12
+              : dataPiece.endDate?.getMonth());
+          let date = startdate ? startdate + " - " + endDate : endDate;
+          return (
+            <div className={` ${style["container-innerGrid"]} `}>
+              <div className={`${style["h-3"]} `}>
+                <h2>{name}</h2>
+              </div>
+              <div>
+                <p>{description}</p>
+              </div>
+              <div className={`${style["flex-col"]}  `}>
+                <h4>{date}</h4>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
-}
-
-
+  );
+};
 
 const Space = () => {
-  return <div className={`${style["spaceSection"]} `}>
-
-  </div>
-
-}
+  return <div className={`${style["spaceSection"]} `}></div>;
+};
