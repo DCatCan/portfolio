@@ -70,7 +70,7 @@ export const workexp = [
     workedAs: "Freelance",
     description: "Created a company web design, made by the company's own UI designer, and made compatible functionality to the design.",
     startDate: new Date(2022, 9),
-    endDate: new Date(2022, 12),
+    endDate: new Date(2021, 12),
   },
   {
     Company: "KvalificeradKost",
