@@ -57,13 +57,13 @@
   min-height: 800 px;
 }
 .h-50vh {
-  min-height: 50vh;
+  min-height: 50vh !important;
 }
 .h-75vh {
-  min-height: 75vh;
+  min-height: 75vh !important;
 }
 .h-100vh {
-  min-height: 100vh;
+  min-height: 100vh !important;
 }
 
 .w-1 {
@@ -452,7 +452,7 @@
   padding: 0 1em;
   display: block;
 }
-.container-image > * {
+.container-image > img {
   box-shadow: 0px 4px 10px 5px #adb5bd;
   -o-object-fit: cover;
      object-fit: cover;
@@ -564,4 +564,7 @@
   position: absolute;
   top: 50%;
   right: 50%;
+}
+.font_size_small {
+  font-size: small;
 }/*# sourceMappingURL=pageStyle.module.css.map */

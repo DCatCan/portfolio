@@ -93,15 +93,15 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     }
 
     &-50vh {
-        min-height: 50vh;
+        min-height: 50vh !important;
     }
 
     &-75vh {
-        min-height: 75vh;
+        min-height: 75vh !important;
     }
 
     &-100vh {
-        min-height: 100vh;
+        min-height: 100vh !important;
     }
 }
 
@@ -224,10 +224,9 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     &-image {
         @include media_breakPoints(mobile) {}
         padding: 0 1em;
-
         display: block;
 
-        >* {
+        >img {
             box-shadow: 0px 4px 10px 5px #adb5bd;
             object-fit: cover
         }
@@ -279,7 +278,6 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     &-text {
         @extend .flex-col, .container;
         padding-top: 3em;
-        // box-shadow: 2px 2px 8px #adb5bd;
 
 
         @include media_breakPoints(mobile tablet) {
@@ -391,5 +389,11 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         position: absolute;
         top: 50%;
         right: 50%;
+    }
+    &_size{
+
+        &_small{
+            font-size: small;
+        }
     }
 }

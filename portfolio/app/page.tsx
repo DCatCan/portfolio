@@ -3,7 +3,7 @@ import profilePic from "@/public/profilePic.jpeg";
 import logo from "@/public/su_logo.svg";
 import style from "@/style/pageStyle.module.css";
 import { FC } from "react";
-import { skillData, projects, workexp } from "@/public/data/data.js";
+import { skillData, projects, workexp, contact } from "@/public/data/data.js";
 import Link from "next/link";
 
 interface skillGroup {
@@ -33,9 +33,17 @@ interface workData {
   endDate: Date;
 }
 
+interface contactData {
+  Telephone: number;
+  Email: string;
+  Location: string;
+  LinkedIn: string;
+}
+
 type dataProps = { skillData: skillGroup[] };
 type projProps = { projects: projectData[] };
 type workProps = { workexp: workData[] };
+type contactProps = { contact: contactData };
 
 export default function Home() {
   return (
@@ -44,6 +52,7 @@ export default function Home() {
       <Skillsection skillData={skillData} />
       <Workexp workexp={workexp} />
       <Projects projects={projects} />
+      <Contact contact={contact} />
     </main>
   );
 }
@@ -103,7 +112,7 @@ const Skillsection = ({ skillData }: dataProps) => {
             </div>
           </div>
 
-          <p>
+          <p className={`${style["font_size_small"]}`}>
             Programming I & II (Scheme, Python) | Object-Oriented Programming
             (Java) | Programming Paradigms (C, Python, Java, Haskell, Prolog,
             JavaScript) | Computer Graphics, and User Interfaces (C++) |
@@ -126,11 +135,14 @@ const Skillsection = ({ skillData }: dataProps) => {
                   const bars = new Array(el.level).fill(0);
 
                   return (
-                    <div className={`${style["card"]}  `}  key={el.name}>
+                    <div className={`${style["card"]}  `} key={el.name}>
                       <h3>{el.name}</h3>
                       <div className={`${style["container-bars"]} `}>
                         {bars.map((bar, index) => (
-                          <div className={`${style["bar"]} `} key={el.name + index}></div>
+                          <div
+                            className={`${style["bar"]} `}
+                            key={el.name + index}
+                          ></div>
                         ))}
                       </div>
                     </div>
@@ -147,7 +159,7 @@ const Skillsection = ({ skillData }: dataProps) => {
 
 const Projects = ({ projects }: projProps) => {
   return (
-    <div className={`${style["container-section"]} `}>
+    <div className={`${style["container-section"]} ${style[""]} `}>
       <div className={`${style["container-text"]} `}>
         <h1>Projects</h1>
         <p>Projects that I&apos;ve been part of or made on my own.</p>
@@ -189,7 +201,7 @@ const Projects = ({ projects }: projProps) => {
 
 const Workexp = ({ workexp }: workProps) => {
   return (
-    <div className={`${style["container-section"]} `}>
+    <div className={`${style["container-section"]} ${style["h-50vh"]} `}>
       <div className={`${style["container-text"]} `}>
         <h1>Work Experience</h1>
         <p>Work experience that I&apos;ve accumulated throughout the years.</p>
@@ -234,3 +246,26 @@ const Workexp = ({ workexp }: workProps) => {
 const Space = () => {
   return <div className={`${style["spaceSection"]} `}></div>;
 };
+
+function Contact({ contact }: contactProps) {
+  return (
+    <div className={`${style["container-section"]} ${style["h-50vh"]} `}>
+      <h1>Contact</h1>
+
+      <div className={`${style["container-innerGrid"]} `}>
+        <p>
+          Telephone: +{contact.Telephone}
+          <br />
+          <br />
+          Email: {contact.Email}
+          <br />
+          <br />
+          LinkedIn: <Link href={contact.LinkedIn}>My LinkedIn Profile</Link>
+          <br />
+          <br />
+          Located: {contact.Location}
+        </p>
+      </div>
+    </div>
+  );
+}
