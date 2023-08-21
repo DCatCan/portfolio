@@ -87,7 +87,7 @@ const Presentation = () => {
 const Skillsection = ({ skillData }: dataProps) => {
   return (
     <div className={`${style["container-section"]} ${style["mb-8"]}`}>
-      <div className={`${style["container-text"]} `}>
+      <div className={`${style["container-text"]} ${style["mb-0"]} `}>
         <h1>Education & programming skill set</h1>
         <p>
           This section presents my education and different programming language
@@ -99,7 +99,7 @@ const Skillsection = ({ skillData }: dataProps) => {
         </p>
       </div>
       <div className={`${style["flex-col"]}`}>
-        <div className={`${style["container-innerGrid"]} ${style["gap_0"]} `}>
+        <div className={`${style["container-innerGrid"]}  `}>
           <div
             className={`${style["flex-row"]} ${style["flex-space_between"]}`}
           >
@@ -159,8 +159,8 @@ const Skillsection = ({ skillData }: dataProps) => {
 
 const Projects = ({ projects }: projProps) => {
   return (
-    <div className={`${style["container-section"]} ${style[""]} `}>
-      <div className={`${style["container-text"]} `}>
+    <div className={`${style["container-section"]} ${style["mb-8"]} `}>
+      <div className={`${style["container-text"]} ${style["mb-0"]}`}>
         <h1>Projects</h1>
         <p>Projects that I&apos;ve been part of or made on my own.</p>
       </div>
@@ -202,7 +202,7 @@ const Projects = ({ projects }: projProps) => {
 const Workexp = ({ workexp }: workProps) => {
   return (
     <div className={`${style["container-section"]} ${style["h-50vh"]} `}>
-      <div className={`${style["container-text"]} `}>
+      <div className={`${style["container-text"]} ${style["mb-0"]} `}>
         <h1>Work Experience</h1>
         <p>Work experience that I&apos;ve accumulated throughout the years.</p>
       </div>
@@ -250,7 +250,9 @@ const Space = () => {
 function Contact({ contact }: contactProps) {
   return (
     <div className={`${style["container-section"]} ${style["h-50vh"]} `}>
-      <h1>Contact</h1>
+      <div className={`${style["container-text"]} ${style["mb-0"]}`}>
+        <h1>Contact</h1>
+      </div>
 
       <div className={`${style["container-innerGrid"]} `}>
         <p>
