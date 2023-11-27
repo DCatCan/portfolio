@@ -90,8 +90,8 @@ export const workexp = [
 ];
 
 export const contact = {
-  Telephone: 56936938497,
+  Telephone: 46709920575,
   Email: "Danilo.catalancanales@gmail.com",
-  Location : "Santiago",
+  Location : "Stockholm, Sweden",
   LinkedIn: "https://www.linkedin.com/in/danilo-catalan-canales-7419211a6/",
 };
