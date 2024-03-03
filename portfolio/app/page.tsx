@@ -19,7 +19,7 @@ interface Skill {
 interface projectData {
   projectName: string;
   description: string;
-  extra_title: string;
+  extraTitle?: string;
   startDate?: Date;
   endDate: Date;
   url?: string;
