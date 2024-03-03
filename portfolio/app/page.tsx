@@ -169,7 +169,7 @@ const Projects = ({ projects }: projProps) => {
         {projects.map((dataPiece) => {
           const name = dataPiece.projectName;
           const description = dataPiece.description;
-          const extraTitle = dataPiece.extra_title ? <h4><br />{dataPiece.extra_title}</h4> : undefined;
+          const extraTitle = dataPiece.extraTitle ? <h4><br />{dataPiece.extraTitle}</h4> : undefined;
           let startdate = dataPiece.startDate
             ? dataPiece.startDate.getFullYear() +
               "/" +
