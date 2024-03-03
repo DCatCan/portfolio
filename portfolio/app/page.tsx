@@ -19,6 +19,7 @@ interface Skill {
 interface projectData {
   projectName: string;
   description: string;
+  extra_title: string;
   startDate?: Date;
   endDate: Date;
   url?: string;
@@ -168,6 +169,7 @@ const Projects = ({ projects }: projProps) => {
         {projects.map((dataPiece) => {
           const name = dataPiece.projectName;
           const description = dataPiece.description;
+          const extraTitle = dataPiece.extra_title ? <h4><br />{dataPiece.extra_title}</h4> : undefined;
           let startdate = dataPiece.startDate
             ? dataPiece.startDate.getFullYear() +
               "/" +
@@ -183,6 +185,7 @@ const Projects = ({ projects }: projProps) => {
             <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
                 <h2>{name}</h2>
+                {extraTitle}
               </div>
               <div>
                 <p>{description}</p>
@@ -209,6 +212,7 @@ const Workexp = ({ workexp }: workProps) => {
       <div className={``}>
         {workexp.map((dataPiece) => {
           const name = dataPiece.Company;
+          const workingAs = dataPiece.workedAs;
           const description = dataPiece.description;
           let startdate = dataPiece.startDate
             ? dataPiece.startDate.getFullYear() +
@@ -228,6 +232,8 @@ const Workexp = ({ workexp }: workProps) => {
             <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
                 <h2>{name}</h2>
+                <br />
+                <h4>{workingAs}</h4>
               </div>
               <div>
                 <p>{description}</p>
