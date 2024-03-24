@@ -16,6 +16,8 @@ interface Skill {
   level: number;
 }
 
+
+
 interface projectData {
   projectName: string;
   description: string;
@@ -33,6 +35,7 @@ interface workData {
   description: string;
   startDate: Date;
   endDate: Date;
+  type?: string;
 }
 
 interface contactData {
@@ -238,9 +241,9 @@ const Workexp = ({ workexp }: workProps) => {
           return (
             <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
-                <h2>{name}</h2>
+                <h2>{workingAs}</h2>
                 <br />
-                <h4>{workingAs}</h4>
+                <h4>{name}</h4>
               </div>
               <div>
                 <p>{description}</p>
