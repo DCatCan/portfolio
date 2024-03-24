@@ -20,8 +20,8 @@ interface projectData {
   projectName: string;
   description: string;
   extraTitle?: string;
-  startDate?: Date;
-  endDate: Date;
+  startDate: Date;
+  endDate?: Date;
   url?: string;
   pdf?: string;
 }
@@ -176,11 +176,13 @@ const Projects = ({ projects }: projProps ) => {
               "/" +
               dataPiece.startDate?.getMonth()
             : undefined;
-          let endDate: string =
+          let endDate = dataPiece.endDate ? 
             dataPiece.endDate.getFullYear() +
             "/" +
-            dataPiece.endDate.getMonth();
-          let date = startdate ? startdate + " - " + endDate : endDate;
+            dataPiece.endDate.getMonth() : null;
+
+          let date = startdate ? startdate + " - " +(endDate ? endDate : "Ongoing") : null 
+          
           const url = dataPiece.url;
           const pdf = dataPiece.pdf;
           return (
@@ -195,7 +197,9 @@ const Projects = ({ projects }: projProps ) => {
               <div className={`${style["flex-col"]}  `}>
                 <h4>{date}</h4>
                 {url ? <Link href={url}>Project Page</Link> : null}
-                {pdf ? <Link href={pdf}>Project Paper</Link> : null}
+                {pdf ? <Link href={
+                  {pathname: pdf,}
+                  }>Project Paper</Link> : null}
               </div>
             </div>
           );

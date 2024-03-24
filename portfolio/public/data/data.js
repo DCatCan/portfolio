@@ -74,7 +74,6 @@ export const projects = [
     description:
       "This study proposes the development of an integrated assessment system aimed at improving student performance and quality of work by scoring both class work and participation. The system will generate data to encourage students and provide insights into their overall statistics across various subjects and content areas. By leveraging this data, educators can tailor their support to students' individual needs, fostering a conducive environment for academic growth and achievement.",
     startDate: new Date(2024, 1),
-    endDate: new Date(2023, 4),
     
   },
 ];
