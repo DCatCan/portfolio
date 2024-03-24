@@ -23,6 +23,7 @@ interface projectData {
   startDate?: Date;
   endDate: Date;
   url?: string;
+  pdf?: string;
 }
 
 interface workData {
@@ -158,7 +159,7 @@ const Skillsection = ({ skillData }: dataProps) => {
   );
 };
 
-const Projects = ({ projects }: projProps) => {
+const Projects = ({ projects }: projProps ) => {
   return (
     <div className={`${style["container-section"]} ${style["mb-8"]} `}>
       <div className={`${style["container-text"]} ${style["mb-0"]}`}>
@@ -166,7 +167,7 @@ const Projects = ({ projects }: projProps) => {
         <p>Projects that I&apos;ve been part of or made on my own.</p>
       </div>
       <div className={``}>
-        {projects.map((dataPiece) => {
+        {projects.reverse().map((dataPiece) => {
           const name = dataPiece.projectName;
           const description = dataPiece.description;
           const extraTitle = dataPiece.extraTitle ? <h4><br />{dataPiece.extraTitle}</h4> : undefined;
@@ -181,6 +182,7 @@ const Projects = ({ projects }: projProps) => {
             dataPiece.endDate.getMonth();
           let date = startdate ? startdate + " - " + endDate : endDate;
           const url = dataPiece.url;
+          const pdf = dataPiece.pdf;
           return (
             <div className={` ${style["container-innerGrid"]} `} key={name}>
               <div className={`${style["h-3"]} `}>
@@ -193,6 +195,7 @@ const Projects = ({ projects }: projProps) => {
               <div className={`${style["flex-col"]}  `}>
                 <h4>{date}</h4>
                 {url ? <Link href={url}>Project Page</Link> : null}
+                {pdf ? <Link href={pdf}>Project Paper</Link> : null}
               </div>
             </div>
           );
@@ -210,7 +213,7 @@ const Workexp = ({ workexp }: workProps) => {
         <p>Work experience that I&apos;ve accumulated throughout the years.</p>
       </div>
       <div className={``}>
-        {workexp.map((dataPiece) => {
+        {workexp.reverse().map((dataPiece) => {
           const name = dataPiece.Company;
           const workingAs = dataPiece.workedAs;
           const description = dataPiece.description;

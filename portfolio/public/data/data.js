@@ -56,6 +56,7 @@ export const projects = [
       "API that integrates the RakNet network library with the Havok physics engine to simulate server and client networking, visualize, and record bandwidth statistics.",
     startDate: new Date(2018, 1),
     endDate: new Date(2018, 5),
+    pdf:"../Lavin_Final Report Assessment.pdf"
   },
   {
     projectName:
