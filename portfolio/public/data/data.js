@@ -148,8 +148,8 @@ export const workexp = [
     workedAs: "Freelance - Consultant",
     description:
       "Created a company web design, made by the company's own UI designer, and made compatible functionality to the design.",
-    startDate: new Date(2022, 9),
-    endDate: new Date(2021, 12),
+    startDate: new Date(2023, 2),
+    endDate: new Date(2023, 3),
   },
   {
     Company: "KvalificeradKost",
@@ -157,8 +157,8 @@ export const workexp = [
     workedAs: "Fullstack developer",
     description:
       "Fullstack - Designed and created a webpage made with php, html, css and sql.",
-    startDate: new Date(2023, 2),
-    endDate: new Date(2023, 3),
+    startDate: new Date(2022, 9),
+    endDate: new Date(2022, 12),
   },
   {
     Company: "Ulvsättraskolan",

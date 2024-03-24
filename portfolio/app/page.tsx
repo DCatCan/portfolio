@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profilePic from "@/public/profilePic.jpeg";
+import profilePic from "@/public/profil1.jpeg";
 import logo from "@/public/su_logo.svg";
 import style from "@/style/pageStyle.module.css";
 import { FC } from "react";
@@ -83,7 +83,7 @@ const Presentation = () => {
 
       <div className={`${style["container-image"]} `}>
         <p className={`${style.font__centered}`}></p>
-        <Image src={profilePic} alt="profilePic" className={style.profilepic} />
+        <Image src={profilePic} alt="profilePic" className={style.profilepic} height={800} width={300} />
       </div>
     </div>
   );
