@@ -8,7 +8,7 @@ export const skillData = [
       { name: "JavaScript", level: 4 },
       { name: "TypeScript", level: 3 },
       { name: "Node.js", level: 2 },
-      { name: "PHP", level: 3 },
+      { name: "PHP", level: 4 },
     ],
   },
   {
@@ -24,7 +24,9 @@ export const skillData = [
     list: [
       { name: "SQL", level: 4 },
       { name: "PostgreSQL", level: 4 },
+      { name: "MySQL", level: 4 },
       { name: "MongoDB", level: 4 },
+      { name: "Firebase", level: 1 },
     ],
   },
   {
@@ -56,7 +58,7 @@ export const projects = [
       "API that integrates the RakNet network library with the Havok physics engine to simulate server and client networking, visualize, and record bandwidth statistics.",
     startDate: new Date(2018, 1),
     endDate: new Date(2018, 5),
-    pdf:"../Lavin_Final Report Assessment.pdf"
+    pdf: "../Lavin_Final Report Assessment.pdf",
   },
   {
     projectName:
@@ -68,13 +70,11 @@ export const projects = [
     url: "https://kandidat-exam.vercel.app/userinput",
   },
   {
-    projectName:
-      "Student performance measurement tool",
+    projectName: "Student performance measurement tool",
     extra_title: "Ongoing",
     description:
       "This study proposes the development of an integrated assessment system aimed at improving student performance and quality of work by scoring both class work and participation. The system will generate data to encourage students and provide insights into their overall statistics across various subjects and content areas. By leveraging this data, educators can tailor their support to students' individual needs, fostering a conducive environment for academic growth and achievement.",
     startDate: new Date(2024, 1),
-    
   },
 ];
 
@@ -110,8 +110,7 @@ export const workexp = [
     Company: "Internationella Engelska Skolan Järfälla",
     location: "Hästskovägen  76, Järfälla, Sweden",
     workedAs: "Substitute teacher",
-    description:
-      "Replacing a Spanish teacher half time.",
+    description: "Replacing a Spanish teacher half time.",
     startDate: new Date(2016, 9),
     endDate: new Date(2017, 3),
   },
@@ -174,6 +173,6 @@ export const workexp = [
 export const contact = {
   Telephone: 46709920575,
   Email: "Danilo.catalancanales@gmail.com",
-  Location : "Stockholm, Sweden",
+  Location: "Stockholm, Sweden",
   LinkedIn: "https://www.linkedin.com/in/danilo-catalan-canales-7419211a6/",
 };
