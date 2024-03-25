@@ -16,8 +16,6 @@ interface Skill {
   level: number;
 }
 
-
-
 interface projectData {
   projectName: string;
   description: string;
@@ -70,20 +68,25 @@ const Presentation = () => {
       <div className={`${style["container-text"]} ${style["p-0"]} `}>
         <h1 className="">Danilo Catalan Canales</h1>
         <p>
-          I am a creative, energetic and a self-motivated person. I have lots of
-          interest in technology and innovation, which is what motivates my
-          aspirations to push new creative ideas and solutions in my own work. I
-          have strong problem-solving skills as well as excellent communication
-          skills to be able to work as efficiently as possible with a team. As a
-          graduate and previous experience working with clients and project
-          management I am confident to achieve expected objectives on time with
-          high quality.
+          I'm a tech enthusiast with a passion for innovation and creative
+          problem-solving. Proficient in Python, JavaScript, React, and SQL, I
+          thrive on finding innovative solutions to complex challenges. My
+          ability to think outside the box and come up with fresh ideas allows
+          me to tackle projects with creativity and ingenuity. Great at
+          collaborating and communicating in teams, I bring a unique perspective
+          to every project I work on, driving innovation and pushing boundaries.
         </p>
       </div>
 
       <div className={`${style["container-image"]} `}>
         <p className={`${style.font__centered}`}></p>
-        <Image src={profilePic} alt="profilePic" className={style.profilepic} height={800} width={300} />
+        <Image
+          src={profilePic}
+          alt="profilePic"
+          className={style.profilepic}
+          height={800}
+          width={300}
+        />
       </div>
     </div>
   );
@@ -162,7 +165,7 @@ const Skillsection = ({ skillData }: dataProps) => {
   );
 };
 
-const Projects = ({ projects }: projProps ) => {
+const Projects = ({ projects }: projProps) => {
   return (
     <div className={`${style["container-section"]} ${style["mb-8"]} `}>
       <div className={`${style["container-text"]} ${style["mb-0"]}`}>
@@ -173,19 +176,27 @@ const Projects = ({ projects }: projProps ) => {
         {projects.reverse().map((dataPiece) => {
           const name = dataPiece.projectName;
           const description = dataPiece.description;
-          const extraTitle = dataPiece.extraTitle ? <h4><br />{dataPiece.extraTitle}</h4> : undefined;
+          const extraTitle = dataPiece.extraTitle ? (
+            <h4>
+              <br />
+              {dataPiece.extraTitle}
+            </h4>
+          ) : undefined;
           let startdate = dataPiece.startDate
             ? dataPiece.startDate.getFullYear() +
               "/" +
               dataPiece.startDate?.getMonth()
             : undefined;
-          let endDate = dataPiece.endDate ? 
-            dataPiece.endDate.getFullYear() +
-            "/" +
-            dataPiece.endDate.getMonth() : null;
+          let endDate = dataPiece.endDate
+            ? dataPiece.endDate.getFullYear() +
+              "/" +
+              dataPiece.endDate.getMonth()
+            : null;
 
-          let date = startdate ? startdate + " - " +(endDate ? endDate : "Ongoing") : null 
-          
+          let date = startdate
+            ? startdate + " - " + (endDate ? endDate : "Ongoing")
+            : null;
+
           const url = dataPiece.url;
           const pdf = dataPiece.pdf;
           return (
@@ -200,9 +211,9 @@ const Projects = ({ projects }: projProps ) => {
               <div className={`${style["flex-col"]}  `}>
                 <h4>{date}</h4>
                 {url ? <Link href={url}>Project Page</Link> : null}
-                {pdf ? <Link href={
-                  {pathname: pdf,}
-                  }>Project Paper</Link> : null}
+                {pdf ? (
+                  <Link href={{ pathname: pdf }}>Project Paper</Link>
+                ) : null}
               </div>
             </div>
           );
@@ -282,6 +293,12 @@ function Contact({ contact }: contactProps) {
           <br />
           <br />
           Located: {contact.Location}
+          <br />
+          <br />
+          Github:{" "}
+          <Link href="https://github.com/DCatCan">
+            My previous work and projects
+          </Link>
         </p>
       </div>
     </div>
