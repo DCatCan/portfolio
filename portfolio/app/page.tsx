@@ -68,7 +68,7 @@ const Presentation = () => {
       <div className={`${style["container-text"]} ${style["p-0"]} `}>
         <h1 className="">Danilo Catalan Canales</h1>
         <p>
-          I'm a tech enthusiast with a passion for innovation and creative
+          I&apos;m a tech enthusiast with a passion for innovation and creative
           problem-solving. Proficient in Python, JavaScript, React, and SQL, I
           thrive on finding innovative solutions to complex challenges. My
           ability to think outside the box and come up with fresh ideas allows
