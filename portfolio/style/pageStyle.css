@@ -420,8 +420,8 @@
 .profilepic {
   -o-object-fit: cover;
      object-fit: cover;
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   -o-object-position: 0 -10px;
      object-position: 0 -10px;
   border-radius: 30%;
@@ -463,7 +463,7 @@
 .container-section {
   min-height: 100vh;
   width: 100%;
-  max-width: 910px;
+  max-width: 710px;
   gap: 1em;
 }
 @media only screen and (max-width: 667px) {
@@ -571,4 +571,4 @@
 }
 .font_size_small {
   font-size: small;
-}/*# sourceMappingURL=pageStyle.module.css.map */
+}/*# sourceMappingURL=pageStyle.css.map */

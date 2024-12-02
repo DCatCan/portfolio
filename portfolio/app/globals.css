@@ -8,11 +8,18 @@ p{
   margin:0;
   padding:0;
 }
-h1,h2,h3,h4{
+h1,h2,h3,h4,h5{
   margin:0;
   padding: 0;
   display: unset;
 }
+h5{
+  color: gray;
+}
 main{
   display: unset;
+}
+ul{
+  padding: 0;
+  list-style: none;
 }

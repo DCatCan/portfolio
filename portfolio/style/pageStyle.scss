@@ -185,8 +185,8 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
 
 .profilepic {
     object-fit: cover;
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     object-position: 0 -10px;
     border-radius: 30%;
     scale: 1;
@@ -242,7 +242,7 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
         @extend .flex-col, .container;
         min-height: 100vh;
         width: 100%;
-        max-width: 710px;
+        max-width: 910px;
         gap: 1em;
 
         @include media_breakPoints(mobile) {
@@ -358,7 +358,9 @@ $media_queries : ('mobile' : unquote("only screen and (max-width: 667px)"),
     }
 }
 
-
+.contact{
+    font-weight: 600;
+}
 
 .card {
     @extend .flex-col, .align-center;
