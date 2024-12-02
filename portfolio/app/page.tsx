@@ -78,7 +78,7 @@ const Presentation = () => {
 					Consultant at Betty Booth AB, I crafted websites and developed APIs,
 					ensuring seamless functionality. Freelancing as a Fullstack Developer,
 					I prioritized efficiency and user satisfaction. Fluent in Spanish,
-					Swedish, and English, I'm equipped to communicate effectively across
+					Swedish, and English, I&apos;m equipped to communicate effectively across
 					borders and cultures.
 				</p>
 			</div>
